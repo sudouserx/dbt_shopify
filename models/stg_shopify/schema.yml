@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_abandoned_checkouts
+    description: "Staging model for Shopify abandoned checkouts"
+    columns:
+      - name: customer_id
+        description: "Foreign key to the customers table"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: id
